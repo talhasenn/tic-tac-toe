@@ -1,12 +1,8 @@
-// Tic-Tac-Toe Game in JavaScript
-
-// Game variables
 let board;
 let currentPlayer;
 let gameWon;
 let moveCount;
 
-// Initialize the game
 function initGame() {
   board = [
     ['', '', ''],
@@ -19,7 +15,6 @@ function initGame() {
   renderBoard();
 }
 
-// Render the game board
 function renderBoard() {
   const boardContainer = document.getElementById('board');
   boardContainer.innerHTML = '';
@@ -37,7 +32,6 @@ function renderBoard() {
   }
 }
 
-// Handle a cell click
 function handleCellClick(event) {
   if (gameWon) {
     return;
@@ -63,11 +57,9 @@ function handleCellClick(event) {
   }
 }
 
-// Check if a player has won
 function checkWin(row, col) {
   const symbol = board[row][col];
 
-  // Check row
   if (
     board[row][0] === symbol &&
     board[row][1] === symbol &&
@@ -76,7 +68,6 @@ function checkWin(row, col) {
     return true;
   }
 
-  // Check column
   if (
     board[0][col] === symbol &&
     board[1][col] === symbol &&
@@ -85,7 +76,6 @@ function checkWin(row, col) {
     return true;
   }
 
-  // Check diagonal
   if (row === col) {
     if (
       board[0][0] === symbol &&
@@ -96,7 +86,6 @@ function checkWin(row, col) {
     }
   }
 
-  // Check anti-diagonal
   if (row + col === 2) {
     if (
       board[0][2] === symbol &&
@@ -110,5 +99,4 @@ function checkWin(row, col) {
   return false;
 }
 
-// Start the game
 initGame();
